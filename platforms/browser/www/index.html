@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Site Submarino</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="materialize/css/materialize.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="src/style.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" href="images/icon.png" />
+  </head>
+
+  <body class="#e8eaf6 indigo lighten-5">
+    <nav>
+      <div class="nav-wrapper blue">
+        <div class="input-field left">
+          <input id="search" type="search" onclick="search(1)" required>
+          <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+          <i class="material-icons" onclick="search(0)">close</i>
+
+        </div>
+
+        <a href="#!" class="brand-logo">Logo</a>
+        <a href="#" id="sidenav" data-target="slide-out" class="sidenav-trigger right"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="sass.html">Sass</a></li>
+          <li><a href="badges.html">Components</a></li>
+          <li><a href="collapsible.html">Javascript</a></li>
+          <li><a href="mobile.html">Mobile</a></li>
+        </ul>
+      </div>
+    </nav>
+    <ul id="slide-out" class="sidenav">
+      <li>
+        <div class="user-view">
+          <div class="background blue">
+
+          </div>
+          <a href="#user"></a>
+          <a href="#name"><span class="white-text name">Visitante</span></a>
+          <a href="#email"><span class="white-text email">Bem vindo!!</span></a>
+          <span class="white-text">Cadastre-se em Nosso Aplicativo!</span>
+        </div>
+      </li>
+      <li class="options-item"><a href="sass.html"><i class="material-icons">flare</i>Destaques</a></li>
+      <li class="options-item"><a href="badges.html"><i class="material-icons">assignment_turned_in</i>Meus Pedidos</a></li>
+      <li class="options-item"><a href="collapsible.html"><i class="material-icons">notifications</i>Notificações</a></li>
+      <li class="options-item"><a href="mobile.html"><i class="material-icons">subject</i>Leitor De Código de Barras</a></li>
+      <li class="options-item"><a href="mobile.html"><i class="material-icons">credit_card</i>Cartão Da Loja</a></li>
+      <li class="options-item"><a href="mobile.html"><i class="material-icons">phone</i>Compre por telefone</a></li>
+    </ul>
+
+    <ul id="tabs-swipe-demo" class="tabs blue">
+      <li class="tab col s3"><a class="white-text" href="#test-swipe-1">Lojas</a></li>
+      <li class="tab col s3"><a class="white-text active" href="#test-swipe-2">Destaques</a></li>
+      <li class="tab col s3"><a class="white-text" href="#test-swipe-3">Favoritos</a></li>
+    </ul>
+    <div id="test-swipe-1" class="col s12">
+      <ul class="collapsible">
+        <li>
+          <div class="collapsible-header waves-effect"><i class="material-icons">filter_drama</i>Lojas Especiais</div>
+          <div class="collapsible-body center"><span>Geekland</span></div>
+          <div class="collapsible-body center"><span>Lojas parceiras</span></div>
+        </li>
+        <li>
+          <div class="collapsible-header waves-effect"><i class="material-icons">place</i>Livraria Universitária</div>
+          <div class="collapsible-body center"><span>Administração e negócios</span></div>
+          <div class="collapsible-body center"><span>Arquitetura e Design</span></div>
+          <div class="collapsible-body center"><span>Ciências Biológicas e naturais </span></div>
+        </li>
+        <li>
+          <div class="collapsible-header waves-effect"><i class="material-icons">menu</i>Livros</div>
+          <div class="collapsible-body"><span>Livrarias</span></div>
+        </li>
+      </ul>
+
+
+    </div>
+    <div id="test-swipe-2" class="col s12" style="height:100%;">
+      <div class="carousel carousel-slider z-depth-1">
+        <a class="carousel-item" href="#one!"><img src="images/ImgC.png"></a>
+        <a class="carousel-item" href="#two!"><img src="images/imgC2.png"></a>
+        <a class="carousel-item" href="#three!"><img src="images/imgC3.png"></a>
+        <a class="carousel-item" href="#four!"><img src="images/imgC4.png"></a>
+        <a class="carousel-item" href="#four!"><img src="images/imgC5.png"></a>
+      </div>
+
+      <div class="card z-depth-2 left s12 l6" style=" margin-left:3px; margin-right:3px; margin-bottom:2px; width:48%; height:150px;">
+        <img src="images/submarino.png" />
+      </div>
+      <div class="card z-depth-2 left" style="margin-left:3px; margin-right:3px; margin-bottom:2px;  width:48%; height:150px;">
+        <img src="images/submarino2.png" />
+      </div>
+      <div class="card z-depth-2 left" style="margin-left:3px; margin-right:3px; margin-bottom:2px;  width:48%; height:150px;">
+        <img src="images/submarino3.png" />
+      </div>
+      <div class="card z-depth-2 left" style="margin-left:3px; margin-right:3px; margin-bottom:2px;  width:48%; height:150px;">
+        <img src="images/submarino4.png" />
+      </div>
+
+      <div class="container center">
+        <div class="slider left" style="margin-top:20px;">
+          <ul class="slides">
+            <li>
+              <div class="caption ">
+                <h3>Seus Livros Favoritos</h3>
+                <h5 class="light grey-text text-lighten-3"></h5>
+              </div>
+            </li>
+            <li>
+              <div class="caption left-align">
+                <h3>O Fogão que você mais Deseja!</h3>
+                <h5 class="light grey-text text-lighten-3"></h5>
+              </div>
+            </li>
+            <li>
+              <div class="caption right-align">
+                <h3>Incriveis Descontos pós Carnaval!</h3>
+                <h5 class="light grey-text text-lighten-3"></h5>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    <div id="test-swipe-3" class="col s12 l12">
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card">
+            <div class="card-image">
+              <img src="images/download.png">
+              <span class="card-title black-text">Favoritos</span>
+              <a class="btn-floating halfway-fab waves-effect waves-light blue cyan pulse"><i class="material-icons">add</i></a>
+            </div>
+            <div class="card-content">
+              <p>Adicione seus Produtos Favoritos e acompanhe seus preços! </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <script src="materialize/js/materialize.js"></script>
+    <script src="src/script.js"></script>
+  </body>
+
+</html>

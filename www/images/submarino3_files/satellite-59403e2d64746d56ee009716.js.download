@@ -1,0 +1,10 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+  var body_rtbhouse = document.getElementsByTagName('body')[0]
+  var img_rtbhouse = new Image()
+  img_rtbhouse.src = '//us.creativecdn.com/tags?type=img&id=pr_Y07MwfS0QdwE3ad094tZ_home'
+  img_rtbhouse.width = '1'
+  img_rtbhouse.height = '1'
+  body_rtbhouse.appendChild(img_rtbhouse)
+} catch (e) { }
+});

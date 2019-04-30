@@ -1,0 +1,97 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+    var track = _satellite.getVar('saispaTrack');
+    var payload = {};
+    var events = [];
+    var getProducts = function() {
+        return cage_global_variable.detail.cart.lines.map(function(offer) {
+            return {
+                id: offer.productId,
+                name: offer.product.name,
+                value: parseFloat(offer.unitSalesPrice),
+                quantity: parseInt(offer.quantity),
+                sku: offer.productSku,
+                department: offer.product.department,
+                line: offer.product.line
+            };
+        })
+    };
+
+    switch(_satellite.getVar('getCagePageName')) {
+        case 'Produto':
+            events.push('viewContent');
+            payload = {
+                currency: 'BRL',
+                product: {
+                    id: _satellite.getVar("getProductPageID"),
+                    name: _satellite.getVar("getProductMostVisited"),
+                    category: _satellite.getVar("getOriginalBreadCrumb"),
+                    line: _satellite.getVar("getLineID"),
+                    value: parseFloat(_satellite.getVar("getProductValue")) || null,
+                },
+                detail: {
+                    page: {
+                        type: 'product'
+                    },
+                    content: {
+                        type: 'Product'
+                    },
+                    cookies: {
+                        dmp: '[' + _satellite.getVar('getDMPCookie') + ']'
+                    }
+                }
+            };
+            break;
+        case 'Sacola':
+            events.push('addToCart');
+            console.log(getProducts());
+            payload = {
+                products: getProducts(),
+                currency: 'BRL',
+                detail: {
+                    page: {
+                        type: 'basket'
+                    },
+                    content: {
+                        type: 'Product'
+                    },
+                    cookies: {
+                        dmp: '[' + _satellite.getVar('getDMPCookie') + ']'
+                    }
+                }
+            };
+            break;
+        case 'Obrigado':
+            events.push('purchase');
+            payload = {
+                products: getProducts(),
+                currency: 'BRL',
+                order: _satellite.getVar('getCompletePurchaseID'),
+                appId: _satellite.getVar('getAppId'),
+                detail: {
+                    page: {
+                        type: 'thankyou'
+                    },
+                    content: {
+                        type: 'Product'
+                    },
+                    cookies: {
+                        dmp: '[' + _satellite.getVar('getDMPCookie') + ']'
+                    }
+                }
+            };
+            break;
+        default:
+            payload = {detail: cage_global_variable.detail};
+            break;
+    }
+  
+  	track('pageView', {detail: cage_global_variable.detail});
+
+    events.map(function(eventName) {
+        track(eventName, payload);
+    });
+
+} catch(e) {}
+
+});

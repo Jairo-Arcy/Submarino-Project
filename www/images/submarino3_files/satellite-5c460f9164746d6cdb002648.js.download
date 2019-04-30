@@ -1,0 +1,5 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+	_satellite.getVar('getTeadsConditions');
+}catch(e) {console.error('teads', e)}
+});

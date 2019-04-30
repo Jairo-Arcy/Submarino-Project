@@ -1,0 +1,34 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+	var email_user = _satellite.getVar("getEmail");
+	var hash       = (typeof email_user == "string" && email_user != "" && typeof cage_hash_MD5 == "function")?cage_hash_MD5(email_user):""
+	
+	var criteo = document.createElement('script');
+	criteo.type = 'text/javascript';
+	criteo.async = true;
+	criteo.src = '//static.criteo.net/js/ld/ld.js';
+  
+  var device = cage_global_variable.detail.device.type.toLowerCase();
+  var criteo_device = "d";
+  if (device == 'mobile') {
+    criteo_device = "m";
+  } else if (device == 'tablet') {
+    criteo_device = "t" ;
+  }
+
+	var s_criteo = document.getElementsByTagName('body')[0].appendChild(criteo);
+	window.criteo_q = window.criteo_q || [];
+	window.criteo_q.push({
+		event: "setAccount",
+		account: _satellite.getVar("getCriteoAccount")
+	}, {
+		event: "setHashedEmail",
+		email: hash
+	}, {
+		event: "setSiteType",
+		type: criteo_device
+	}, {
+		event: "viewHome"
+	});
+} catch (e) {}
+});

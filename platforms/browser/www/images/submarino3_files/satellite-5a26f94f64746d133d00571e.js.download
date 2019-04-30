@@ -1,0 +1,18 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+	var brand_id = "1008" //SUBA
+	var body_responsys = document.getElementsByTagName('body')[0]
+	var img_responsys = new Image(); // create image element
+	var page_url = encodeURIComponent(_satellite.getVar("getURL"))
+
+	img_responsys.src = "//i.afilio.com.br/mastertag_img.php?" +
+		"progid=" + brand_id +
+		"&type=homepage&id_partner=submarino&url_product=" + page_url
+
+	img_responsys.width = '1';
+	img_responsys.height = '1';
+	body_responsys.appendChild(img_responsys);
+} catch (e) {
+	console.log(e)
+}
+});

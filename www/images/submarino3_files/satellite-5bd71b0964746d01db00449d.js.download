@@ -1,0 +1,50 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+    var epar = _satellite.getVar('getEpar');
+    var body = document.body;
+    var script = document.createElement('script');
+    script.src = 'https://statics-submarino.b2w.io/saispa/saispa-0.8.5.min.js';
+
+    body.appendChild(script);
+
+    (function saispaInit(){
+        if(!window.saispa || !window.saispa.init) {
+            return setTimeout(saispaInit, 250);
+        }
+
+        saispa.identify({email: _satellite.getVar('getEmail')});
+
+        saispa.setCondition(epar || 'default');
+
+        saispa.init({
+            settings: {
+                facebook: {
+                    key: _satellite.getVar('getFacebookAccount'),
+                    hasDefault: true,
+                    optionalCases: [],
+                }
+            },
+            home: {
+                pageView: ['facebook'],
+            },
+            product: {
+                pageView: ['facebook'],
+                viewContent: ['facebook'],
+            },
+            basket: {
+                pageView: ['facebook'],
+                addToCart: ['facebook'],
+            },
+            thankyou: {
+                pageView: ['facebook'],
+                purchase: ['facebook']
+            }
+        }, true);
+        
+        console.log('[SAISPA]: Started');
+    })()
+}catch(e) {
+    console.log('[SAISPA]:', e);
+}
+
+});

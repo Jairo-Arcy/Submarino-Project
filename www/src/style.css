@@ -1,0 +1,28 @@
+body, html {
+    margin:0;
+    border:0;
+}
+img {
+    width:100%;
+    height: 100%;
+}
+.indicators {
+    background-color: rgba(0, 0, 0, 0.452);
+    height:40px;
+}
+li.indicator-item {
+    margin-top:5px;
+}
+
+.input-field {
+    width:60%;
+    z-index: 8888;
+    /*transition: all .1s;*/
+}
+.sidenav {
+    z-index: 999999;
+}
+.sidenav-trigger.hide.right{
+    transition-delay: .4s;
+
+}

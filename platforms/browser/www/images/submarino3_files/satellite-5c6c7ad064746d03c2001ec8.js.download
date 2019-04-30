@@ -1,0 +1,13 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+  (function(src) {
+    var s;
+    s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = src;
+    s.async = true;
+    document.body.appendChild(s);
+  }('https://statics-submarino.b2w.io/saispa/client/saispa-client-0.1.16.min.js'));
+} catch (e) { }
+
+});

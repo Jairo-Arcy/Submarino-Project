@@ -1,0 +1,11 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+  var body_sirdata = document.getElementsByTagName('body')[0]
+  var img_sirdata = new Image()
+
+  img_sirdata.src = '//secure.adnxs.com/seg?add=10126674&t=2&redir=https://js.sddan.com/LAL.d?pa=21935%26return=img'
+  img_sirdata.width = '1'
+  img_sirdata.height = '1'
+  body_sirdata.appendChild(img_sirdata)
+} catch (e) { }
+});

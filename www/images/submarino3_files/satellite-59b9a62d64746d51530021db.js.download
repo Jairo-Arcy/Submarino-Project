@@ -1,0 +1,17 @@
+_satellite.pushAsyncScript(function(event, target, $variables){
+  try {
+    rtgsettings ={
+        'pdt_url': _satellite.getVar("getHostAndPath"),
+        'pagetype': 'home',
+        'key': 'DIR',
+        'token': 'SUBMARINO_BR',
+        'layer': 'iframe'
+    };
+    (function(d) {
+        var s = d.createElement('script'); s.async = true;s.id='madv2014rtg';s.type='text/javascript';
+        s.src = (d.location.protocol == 'https:' ? 'https:' : 'http:') + '//www.mainadv.com/Visibility/Rtgdir2-min.js';
+        var a = d.getElementsByTagName('script')[0]; a.parentNode.insertBefore(s, a);
+    }(document));
+} catch (e) {
+}
+});
